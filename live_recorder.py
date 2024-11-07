@@ -415,7 +415,7 @@ class Twitcasting(LiveRecoder):
                     'mode': 'client'
                 }
             )).json()
-            if response:
+            if response['movie']['live']:
                 response = (await self.request(
                     method='GET',
                     url=url
