@@ -11,18 +11,18 @@ license = {text = "MIT"}
 keywords = ["LiveRecorder", "Live", "Streamlink", "Bilibili", "Douyu", "Douyin", "YouTube", "Twitch"]
 dependencies = [
     "streamlink>=7.5.0",
-    "httpx[http2]>=0.27.0",
+    "httpx[http2]>=0.28.1",
     "ffmpeg-python>=0.2.0",
-    "loguru>=0.7.2",
+    "loguru>=0.7.3",
     "jsonpath-ng>=1.6.1",
     "jsengine>=1.0.7.post1",
     "quickjs>=1.19.4",
-    "httpx-socks[asyncio]>=0.9.1",
+    "httpx-socks[asyncio]>=0.10.1",
 ]
 
 [project.urls]
-repository = "https://github.com/auqhjjqdo/LiveRecorder"
-documentation = "https://github.com/auqhjjqdo/LiveRecorder#readme"
+repository = "https://github.com/HanekawaHiro/LiveRecorder"
+documentation = "https://github.com/HanekawaHiro/LiveRecorder#readme"
 
 
 [tool.pdm]
