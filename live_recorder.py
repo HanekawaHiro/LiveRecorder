@@ -425,10 +425,7 @@ class Twitcasting(LiveRecoder):
                     url=url
                 )).text
                 title = re.search('<meta name="twitter:title" content="(.*?)">', response).group(1)
-                stream = WebsocketClient(
-                        self.get_streamlink(),
-                        streams(url).get('best')
-                    )  # WebsocketClient[mp4]
+                stream = WebsocketClient(self.get_streamlink().streams(url).get('best') )  # WebsocketClient[mp4]
                 await asyncio.to_thread(self.run_record, stream, url, title, 'mp4')
 
 
