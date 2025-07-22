@@ -412,7 +412,7 @@ class Twitcasting(LiveRecoder):
                 url='https://twitcasting.tv/streamserver.php',
                 params={
                     'target': self.id,
-                    'mode': 'client'
+                    'mode': 'client',
                     'player': 'pc_web'
                 }
             )).json()
