@@ -21,7 +21,7 @@ from streamlink.options import Options
 from streamlink.plugin.api.websocket import WebsocketClient
 from streamlink.stream.hls import HLSStream, HLSStreamReader, HLSStreamWriter
 from streamlink.stream.http import HTTPStream
-from streamlink.stream.stream import Stream, StreamIO,
+from streamlink.stream.stream import Stream, StreamIO
 from streamlink_cli.main import open_stream
 from streamlink_cli.output import FileOutput
 from streamlink_cli.streamrunner import StreamRunner
