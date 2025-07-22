@@ -18,7 +18,10 @@ from httpx_socks import AsyncProxyTransport
 from jsonpath_ng.ext import parse
 from loguru import logger
 from streamlink.options import Options
-from streamlink.stream import StreamIO, HTTPStream, HLSStream
+from streamlink.plugin.api.websocket import WebsocketClient
+from streamlink.stream.hls import HLSStream
+from streamlink.stream.http import HTTPStream
+from streamlink.stream.stream import Stream, StreamIO, 
 from streamlink_cli.main import open_stream
 from streamlink_cli.output import FileOutput
 from streamlink_cli.streamrunner import StreamRunner
@@ -151,7 +154,7 @@ class LiveRecoder:
             session.set_option('http-cookies', self.cookies)
         return session
 
-    def run_record(self, stream: Union[StreamIO, HTTPStream], url, title, format):
+    def run_record(self, stream: Union[StreamIO, HTTPStream, WebsocketClient, HLSStream], url, title, format):
         # 获取输出文件名
         filename = self.get_filename(title, format)
         if stream:
@@ -422,7 +425,7 @@ class Twitcasting(LiveRecoder):
                     url=url
                 )).text
                 title = re.search('<meta name="twitter:title" content="(.*?)">', response).group(1)
-                stream = self.get_streamlink().streams(url).get('high')  # Stream[mp4]
+                stream = self.get_streamlink().streams(url).get('best')  # WebsocketClient[mp4]
                 await asyncio.to_thread(self.run_record, stream, url, title, 'mp4')
 
 
