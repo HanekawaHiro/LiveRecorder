@@ -422,7 +422,7 @@ class Twitcasting(LiveRecoder):
                     url=url
                 )).text
                 title = re.search('<meta name="twitter:title" content="(.*?)">', response).group(1)
-                stream = self.get_streamlink().streams(url).get('best')  # Stream[mp4]
+                stream = self.get_streamlink().streams(url).get('high')  # Stream[mp4]
                 await asyncio.to_thread(self.run_record, stream, url, title, 'mp4')
 
 
