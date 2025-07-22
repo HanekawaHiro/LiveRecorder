@@ -413,6 +413,7 @@ class Twitcasting(LiveRecoder):
                 params={
                     'target': self.id,
                     'mode': 'client'
+                    'player': 'pc_web'
                 }
             )).json()
             if response['movie']['live']:
